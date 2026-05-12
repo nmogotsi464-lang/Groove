@@ -111,6 +111,9 @@ nav{
 
   <!-- HERO CONTENT -->
   <div class="hero-content">
+  <h1>GROOVE GALLERIA</h1>
+  <p>Eyewear inspired by culture and modern luxury.</p>
+</div>
 
     <span class="hero-tag">
       SEASONAL DROP
@@ -176,12 +179,30 @@ And add this CSS under your hero styles:
   left:8%;
   bottom:12%;
 
-  z-index:3;
+  z-index:5;
 
   max-width:550px;
 
   text-align:left;
-   }
+
+  color:white;
+}
+
+.hero-content h1{
+  font-size:4.5rem;
+  font-weight:700;
+  letter-spacing:4px;
+  line-height:0.95;
+
+  margin-bottom:20px;
+}
+
+.hero-content p{
+  font-size:1rem;
+  line-height:1.7;
+
+  opacity:0.9;
+}
 
 .hero-buttons{
   margin-top:40px;
