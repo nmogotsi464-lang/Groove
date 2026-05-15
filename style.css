@@ -540,10 +540,20 @@ nav{
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:750px;
-  padding:20px;
+  position:absolute;
+
+  left:8%;
+  top:68%;
+
+  transform:translateY(-50%);
+
+  z-index:4;
+
+  color:white;
+
+  max-width:500px;
+
+  text-align:left;
 }
 
 .hero-content h1{
