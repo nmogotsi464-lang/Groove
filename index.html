@@ -1,182 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Groove Galleria</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:'Montserrat', sans-serif;
-      background:#050505;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    /* NAVIGATION */
-
-    nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:20px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      background:rgba(0,0,0,0.25);
-      backdrop-filter:blur(10px);
-    }
-
-    .logo{
-      font-size:1.3rem;
-      font-weight:700;
-      letter-spacing:2px;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:30px;
-    }
-
-    .nav-links a{
-      color:white;
-      text-decoration:none;
-      font-size:0.9rem;
-      transition:0.3s;
-    }
-
-    .nav-links a:hover{
-      opacity:0.7;
-    }
-    
-<section class="hero">
-
-  <img src="hero.jpg" alt="Groove Galleria" class="hero-image">
-
-  <div class="overlay"></div>
-
-  <div class="snow" id="snow"></div>
-
-  <div class="hero-content">
-    <h1>GROOVE GALLERIA</h1>
-
-    <p>
-      Eyewear inspired by culture and modern luxury.
-    </p>
-    
-    <a href="#" class="hero-btn">
-  VIEW CATALOG
-</a>
-    
-  </div>
-
-</section>
-
-    .hero-btn:hover{
-      background:white;
-      color:black;
-    }
-
-    /* SNOW */
-
-    .snow{
-      position:absolute;
-      width:100%;
-      height:100%;
-      top:0;
-      left:0;
-      pointer-events:none;
-      z-index:2;
-    }
-
-    .snow span{
-      position:absolute;
-      display:block;
-      width:4px;
-      height:4px;
-      background:white;
-      border-radius:50%;
-      animation:fall linear infinite;
-      opacity:0.8;
-    }
-
-    @keyframes fall{
-      0%{
-        transform:translateY(-10vh);
-      }
-
-      100%{
-        transform:translateY(110vh);
-      }
-    }
-
-    /* FEATURED */
-
-    .featured{
-      padding:100px 8%;
-      background:#080808;
-      text-align:center;
-    }
-
-    .featured h2{
-      font-size:2rem;
-      margin-bottom:50px;
-    }
-
-    .product-card{
-      max-width:350px;
-      margin:auto;
-    }
-
-    .product-card img{
-      width:100%;
-      border-radius:20px;
-    }
-
-    .product-card h3{
-      margin-top:20px;
-      font-size:1.2rem;
-    }
-
-    .product-card p{
-      margin-top:10px;
-      opacity:0.7;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:768px){
-
-      .hero-content h1{
-        font-size:2.5rem;
-      }
-
-      .nav-links{
-        display:none;
-      }
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- NAVBAR -->
 
   <nav>
-    <div class="logo">GROOVE GALLERIA</div>
+
+    <div class="logo">
+      GROOVE GALLERIA
+    </div>
 
     <div class="nav-links">
       <a href="#">Home</a>
@@ -184,71 +31,114 @@
       <a href="#">About</a>
       <a href="#">Contact</a>
     </div>
+
   </nav>
 
   <!-- HERO -->
-<section class="hero">
 
-  <img src="hero.jpg" alt="Groove Galleria" class="hero-image">
+  <section class="hero">
 
-  <div class="overlay"></div>
+    <img src="hero.jpg" alt="Groove Galleria" class="hero-image">
 
-  <div class="snow" id="snow"></div>
+    <div class="overlay"></div>
 
-  <div class="hero-content">
+    <div class="snow" id="snow"></div>
 
-    <span class="hero-tag">
-      WINTER '26 DROP
-    </span>
+    <div class="hero-content">
 
-    <h1>
-      GROOVE<br>GALLERIA
-    </h1>
+      <span class="hero-tag">
+        WINTER '26 DROP
+      </span>
 
-    <p>
-      Eyewear inspired by culture, music and modern street luxury.
-    </p>
-
-  </div>
-
-</section>
-  <!-- FEATURED -->
-
-  <section class="featured">
-
-    <h2>Featured Collection</h2>
-
-    <div class="product-card">
-      <img src="your-product.jpg" alt="Product">
-
-      <h3>Arctic Frames</h3>
+      <h1>
+        GROOVE<br>GALLERIA
+      </h1>
 
       <p>
-        Minimal. Bold. Cinematic.
+        Eyewear inspired by culture, music and modern street luxury.
       </p>
+
+      <div class="hero-buttons">
+
+        <a href="#" class="hero-btn">
+          VIEW CATALOG
+        </a>
+
+        <a href="#" class="hero-btn secondary-btn">
+          EXPLORE
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="scroll-down">
+      SCROLL
     </div>
 
   </section>
 
+  <!-- FEATURED -->
+
+  <section class="featured">
+
+    <div class="featured-title">
+      <h2>Featured Collection</h2>
+    </div>
+
+    <div class="products">
+
+      <div class="product-card">
+
+        <img src="your-product.jpg" alt="Product">
+
+        <div class="product-info">
+
+          <h3>Arctic Frames</h3>
+
+          <p>
+            Minimal. Bold. Cinematic.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>
+      © 2026 Groove Galleria
+    </p>
+  </footer>
+
+  <!-- SNOW SCRIPT -->
+
   <script>
 
-    // SNOW GENERATOR
-
-    const snowContainer = document.getElementById('snow');
+    const snowContainer =
+      document.getElementById('snow');
 
     for(let i = 0; i < 120; i++){
 
-      let snowflake = document.createElement('span');
+      let snowflake =
+        document.createElement('span');
 
-      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.left =
+        Math.random() * 100 + 'vw';
 
       snowflake.style.animationDuration =
         (Math.random() * 5 + 5) + 's';
 
-      snowflake.style.opacity = Math.random();
+      snowflake.style.opacity =
+        Math.random();
 
       snowflake.style.width =
-        snowflake.style.height =
+      snowflake.style.height =
         Math.random() * 4 + 2 + 'px';
 
       snowflake.style.animationDelay =
