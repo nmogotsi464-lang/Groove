@@ -269,4 +269,34 @@
   </section>  <!-- FOOTER -->  <footer>
     <p>© 2026 Groove Galleria. All rights reserved.</p>
   </footer></body>
+  // SHEETDB PRODUCTS
+    fetch("https://sheetdb.io/api/v1/5rx85jjefrjui")
+      .then(res => res.json())
+      .then(products => {
+
+        const container = document.getElementById("products");
+
+        let html = "";
+
+        products.forEach(product => {
+          html += `
+            <div class="product">
+              <img src="${product.image || ''}" alt="${product.name}" />
+              <h3>${product.name}</h3>
+              <p>R${product.price}</p>
+              <p>Stock: ${product.stock}</p>
+
+<a 
+ href="https://wa.me/27706686611?text=Hi%20Groove%20Galleria,%20I'm%20interested%20in%20${product.name}"
+ target="_blank"
+ class="order-btn"
+>
+ Order on WhatsApp
+</a>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+      });
 </html>
