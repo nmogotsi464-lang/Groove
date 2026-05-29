@@ -264,12 +264,22 @@
   </section>
 
   <section class="filters">
-    <button class="active">All</button>
-    <button>Sunglasses</button>
-    <button>Blue Light</button>
-    <button>Luxury</button>
-    <button>New Arrivals</button>
-  </section>
+  <button class="active" onclick="filterProducts('all', this)">
+    All
+  </button>
+
+  <button onclick="filterProducts('Men', this)">
+    Men's
+  </button>
+
+  <button onclick="filterProducts('Women', this)">
+    Women's
+  </button>
+
+  <button onclick="filterProducts('Unisex', this)">
+    Unisex
+  </button>
+</section>
 
   <section class="products" id="products"></section>
 
@@ -278,51 +288,84 @@
   </footer>
 
   <script>
-    fetch("https://sheetdb.io/api/v1/5rx85jjefrjui")
-      .then(res => res.json())
-      .then(products => {
+  let allProducts = [];
 
-        const container = document.getElementById("products");
+  fetch("https://sheetdb.io/api/v1/5rx85jjefrjui")
+    .then(res => res.json())
+    .then(products => {
 
-        let html = "";
+      allProducts = products;
+      displayProducts(products);
 
-        products.forEach(product => {
-          html += `
-            <div class="product">
-              <img src="${product.image || ''}" alt="${product.name}">
+    })
+    .catch(error => {
+      console.error(error);
+    });
 
-              <div class="product-info">
-                <p class="product-category">
-                  ${product.category || 'Eyewear'}
-                </p>
+  function displayProducts(products) {
 
-                <h3>${product.name}</h3>
+    const container = document.getElementById("products");
 
-                <p class="product-price">
-                  R${product.price}
-                </p>
+    let html = "";
 
-                <p class="stock">
-                  ${product.stock} in stock
-                </p>
+    products.forEach(product => {
 
-                <a
-                  href="https://wa.me/27706686611?text=Hi%20Groove%20Galleria,%20I'm%20interested%20in%20${encodeURIComponent(product.name)}"
-                  target="_blank"
-                  class="order-btn"
-                >
-                  Order on WhatsApp
-                </a>
-              </div>
-            </div>
-          `;
-        });
+      html += `
+        <div class="product">
+          <img src="${product.image || ''}" alt="${product.name}">
 
-        container.innerHTML = html;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+          <div class="product-info">
+
+            <p class="product-category">
+              ${product.gender || 'Eyewear'}
+            </p>
+
+            <h3>${product.name}</h3>
+
+            <p class="product-price">
+              R${product.price}
+            </p>
+
+            <p class="stock">
+              ${product.stock} in stock
+            </p>
+
+            <a
+              href="https://wa.me/27706686611?text=Hi%20Groove%20Galleria,%20I'm%20interested%20in%20${encodeURIComponent(product.name)}"
+              target="_blank"
+              class="order-btn"
+            >
+              Order on WhatsApp
+            </a>
+
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function filterProducts(gender, button) {
+
+    document.querySelectorAll(".filters button").forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    if (gender === "all") {
+      displayProducts(allProducts);
+      return;
+    }
+
+    const filtered = allProducts.filter(product =>
+      product.gender &&
+      product.gender.toLowerCase() === gender.toLowerCase()
+    );
+
+    displayProducts(filtered);
+  }
   </script>
 
 </body>
